@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <group android:checkableBehavior="single">
+<!--        <item
+            android:id="@+id/nav_menu_home"
+            android:title="@string/back_top" />-->
+        <item
+            android:id="@+id/nav_menu_recommend"
+            android:title="@string/recommend"/>
+        <item
+            android:id="@+id/nav_menu_collection"
+            android:title="@string/local_collection"/>
+        <item
+            android:id="@+id/nav_menu_theme"
+            android:title="@string/theme_set" />
+        <item
+            android:id="@+id/nav_menu_feedback"
+            android:title="@string/feedback" />
+        <item
+            android:id="@+id/nav_menu_about"
+            android:title="@string/about" />
+
+    </group>
+</menu>

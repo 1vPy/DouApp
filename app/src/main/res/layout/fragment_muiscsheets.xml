@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#F0F3F6"
+    android:orientation="vertical">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:focusable="true"
+            android:focusableInTouchMode="true"
+            android:orientation="vertical">
+
+            <LinearLayout style="@style/wrap_layout">
+                <!-- 上圆角-->
+                <LinearLayout
+                    android:id="@+id/ll_local_music"
+                    style="@style/top_layout">
+                    <ImageView
+                        android:layout_width="25dp"
+                        android:layout_height="25dp"
+                        android:layout_weight="0.1"
+                        android:src="@drawable/icon_local"/>
+                    <TextView
+                        style="@style/usertext"
+                        android:text="本地歌曲" />
+
+                    <ImageView style="@style/img_arrow" />
+                </LinearLayout>
+
+                <!-- 分割线 -->
+                <View style="@style/bg_line" />
+                <!-- 无圆角-->
+                <LinearLayout
+                    android:id="@+id/ll_download_music"
+                    style="@style/mid_layout">
+                    <ImageView
+                        android:layout_width="25dp"
+                        android:layout_height="25dp"
+                        android:layout_weight="0.1"
+                        android:src="@drawable/icon_download"/>
+                    <TextView
+                        style="@style/usertext"
+                        android:text="下载歌曲" />
+
+                    <ImageView style="@style/img_arrow" />
+                </LinearLayout>
+
+                <View style="@style/bg_line" />
+
+                <LinearLayout
+                    android:id="@+id/ll_recent_music"
+                    style="@style/mid_layout">
+                    <ImageView
+                        android:layout_width="25dp"
+                        android:layout_height="25dp"
+                        android:layout_weight="0.1"
+                        android:src="@drawable/icon_recent"/>
+                    <TextView
+                        style="@style/usertext"
+                        android:text="最近播放" />
+
+                    <ImageView style="@style/img_arrow" />
+                </LinearLayout>
+
+                <View style="@style/bg_line" />
+
+                <LinearLayout
+                    android:id="@+id/ll_love_music"
+                    style="@style/bottom_layout">
+                    <ImageView
+                        android:layout_width="25dp"
+                        android:layout_height="25dp"
+                        android:layout_weight="0.1"
+                        android:src="@drawable/icon_love"/>
+                    <TextView
+                        style="@style/usertext"
+                        android:text="我喜欢" />
+
+                    <ImageView style="@style/img_arrow" />
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <LinearLayout style="@style/wrap_layout">
+
+                <LinearLayout style="@style/top_layout">
+                    <ImageView
+                        android:layout_width="25dp"
+                        android:layout_height="25dp"
+                        android:layout_weight="0.1"
+                        android:layout_gravity="center"
+                        android:src="@drawable/icon_sheets"/>
+                    <TextView
+                        style="@style/usertext"
+                        android:text="我的歌单" />
+
+                </LinearLayout>
+
+                <LinearLayout style="@style/wrap_layout">
+
+                    <RelativeLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content">
+
+                        <android.support.v7.widget.RecyclerView
+                            android:id="@+id/ryv_music_sheets"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent" />
+                    </RelativeLayout>
+                </LinearLayout>
+
+            </LinearLayout>
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>

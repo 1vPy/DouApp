@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/root_comingmovie"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <!--    <com.jcodecraeer.xrecyclerview.XRecyclerView
+            android:id="@+id/ryv_movie"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:foregroundGravity="center" />-->
+
+    <android.support.v4.widget.SwipeRefreshLayout
+        android:id="@+id/srl_movie"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginTop="10dp"
+        android:foregroundGravity="center">
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/ryv_movie"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:foregroundGravity="center" />
+
+    </android.support.v4.widget.SwipeRefreshLayout>
+
+
+    <TextView
+        android:id="@+id/tv_tip"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:textColor="@color/bgColor_overlay_black"
+        android:textSize="20sp" />
+</RelativeLayout>

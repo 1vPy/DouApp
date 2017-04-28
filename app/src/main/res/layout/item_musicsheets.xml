@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+
+        <LinearLayout style="@style/mid_layout">
+
+            <TextView
+                android:id="@+id/tv_sheets_name"
+                style="@style/usertext"
+                android:text="歌单1" />
+
+            <TextView
+                android:id="@+id/tv_song_count"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.2"
+                android:text="1"
+                android:textColor="@color/text_clo"
+                android:textSize="16dp" />
+
+            <ImageView style="@style/img_arrow" />
+        </LinearLayout>
+    <View style="@style/bg_line" />
+</LinearLayout>

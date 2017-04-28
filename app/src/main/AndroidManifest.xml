@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.roy.douapp">
+
+    <uses-permission android:name="android.permission.INTERNET" />
+
+    <application
+        android:name=".DouApplication"
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:supportsRtl="true"
+        android:theme="@style/TrTheme">
+
+        <meta-data
+            android:name="com.roy.douapp.utils.image.GlideModuleSetting"
+            android:value="GlideModule" />
+
+        <activity
+            android:name=".ui.SplashActivity"
+            android:screenOrientation="sensorPortrait">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <activity
+            android:name=".ui.MainActivity"
+            android:screenOrientation="sensorPortrait">
+
+            <meta-data
+                android:name="android.app.default_searchable"
+                android:value=".ui.activity.common.SearchActivity" />
+        </activity>
+
+        <activity
+            android:name=".ui.activity.movie.MovieDetailsActivity"
+            android:screenOrientation="sensorPortrait" />
+
+        <activity
+            android:name=".ui.activity.common.WebViewActivity"
+            android:screenOrientation="sensorPortrait" />
+
+        <activity
+            android:name=".ui.activity.common.SystemSettingActivity"
+            android:screenOrientation="sensorPortrait" />
+
+        <activity
+            android:name=".ui.activity.movie.MovieCollectionActivity"
+            android:screenOrientation="sensorPortrait" />
+
+        <activity
+            android:name=".ui.activity.common.SearchActivity"
+            android:screenOrientation="sensorPortrait">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".ui.MainActivity" />
+            <meta-data
+                android:name="android.app.searchable"
+                android:resource="@xml/searchable" />
+
+            <intent-filter>
+                <action android:name="android.intent.action.SEARCH" />
+            </intent-filter>
+        </activity>
+
+        <activity
+            android:name=".ui.activity.music.MusicBillListActivity"
+            android:screenOrientation="sensorPortrait" />
+
+        <activity
+            android:name=".ui.activity.music.MusicDetailsActivity"
+            android:screenOrientation="sensorPortrait" />
+
+        <activity
+            android:name=".ui.activity.music.MusicPlayActivity"
+            android:screenOrientation="sensorPortrait" />
+
+        <service
+            android:name=".service.MusicService"
+            android:exported="true"
+            android:process=":remote" />
+    </application>
+
+</manifest>
