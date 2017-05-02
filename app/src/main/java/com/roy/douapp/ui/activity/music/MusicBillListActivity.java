@@ -75,6 +75,8 @@ public class MusicBillListActivity extends BaseSwipeBackActivity implements Musi
 
     private void initView() {
         collapsing_toolbar.setTitle(getString(R.string.music_bill));
+        collapsing_toolbar.setExpandedTitleColor(getResources().getColor(android.R.color.transparent));
+        collapsing_toolbar.setCollapsedTitleTextColor(getResources().getColor(android.R.color.white));
         mToolbar.setNavigationOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

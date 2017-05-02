@@ -10,6 +10,7 @@
         android:layout_height="wrap_content"
         android:background="@color/material_red"
         android:minHeight="?attr/actionBarSize"
+        android:fitsSystemWindows="true"
         app:layout_scrollFlags="scroll|enterAlways"
         app:popupTheme="@style/ThemeOverlay.AppCompat.Dark"
         app:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar">

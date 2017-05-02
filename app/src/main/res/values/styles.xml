@@ -7,10 +7,11 @@
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
     </style>
-    
+
     <style name="TrTheme" parent="Theme.AppCompat.Light.NoActionBar">
         <item name="android:windowIsTranslucent">true</item>
         <item name="android:windowAnimationStyle">@style/SlideRightAnimation</item>
+        <item name="android:windowTranslucentStatus">true</item>
     </style>
 
     <style name="CustomProgressDialog" parent="@android:style/Theme.Dialog">
@@ -102,7 +103,7 @@
     </style>
 
     <!-- 下圆角样式 -->
-    <style name="bottom_layout"  parent="base_layout">
+    <style name="bottom_layout" parent="base_layout">
         <item name="android:background">@drawable/bottom_layout_selector</item>
     </style>
 
