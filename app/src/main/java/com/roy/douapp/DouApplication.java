@@ -51,6 +51,7 @@ public class DouApplication extends Application {
 
     private void initUtils(){
         AppUtils.init(getApplicationContext());
+        CrashHandler.getInstance().init(this);
     }
 
     private void bindService() {

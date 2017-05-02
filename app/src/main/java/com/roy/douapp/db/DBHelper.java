@@ -24,7 +24,8 @@ public class DBHelper extends SQLiteOpenHelper{
             "musicId TEXT not null);";
     private static final String SQL_CREATE_TB_SHEETS = "create table if not exists tb_sheets(" +
             "id INTEGER primary key not null," +
-            "sheetName TEXT not null);";
+            "sheetName TEXT not null,"+
+            "musicCount INTEGER not null);";
     private static final String SQL_CREATE_TB_SHEETS_MUSIC = "create table if not exists tb_sheets_music(" +
             "id INTEGER primary key not null," +
             "musicName TEXT not null," +
