@@ -23,7 +23,7 @@ public class CrashHandler implements UncaughtExceptionHandler {
 	private static final boolean DEBUG = true;
 
 	private static final String PATH = Environment
-			.getExternalStorageDirectory().getPath() + "/MolioCrash/"+ DouKit.getContext().getString(R.string.app_name)+"/log/";
+			.getExternalStorageDirectory().getPath() + "/"+ DouKit.getContext().getString(R.string.app_name)+"/log/";
 	private static final String FILE_NAME = "crash";
 	private static final String FILE_NAME_SUFFIX = ".trace";
 

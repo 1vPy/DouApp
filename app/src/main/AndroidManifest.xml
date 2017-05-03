@@ -29,7 +29,8 @@
 
         <activity
             android:name=".ui.MainActivity"
-            android:screenOrientation="sensorPortrait">
+            android:screenOrientation="sensorPortrait"
+            android:windowSoftInputMode="adjustPan">
 
             <meta-data
                 android:name="android.app.default_searchable"
@@ -77,6 +78,10 @@
 
         <activity
             android:name=".ui.activity.music.MusicPlayActivity"
+            android:screenOrientation="sensorPortrait" />
+
+        <activity
+            android:name=".ui.activity.common.LoginActivity"
             android:screenOrientation="sensorPortrait" />
 
         <service

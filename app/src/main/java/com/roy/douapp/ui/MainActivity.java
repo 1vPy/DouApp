@@ -18,7 +18,9 @@ import android.support.v7.widget.Toolbar;
 import android.util.TypedValue;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.MotionEvent;
 import android.view.View;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
@@ -26,6 +28,7 @@ import android.widget.RadioGroup;
 import com.roy.douapp.DouApplication;
 import com.roy.douapp.R;
 import com.roy.douapp.base.BaseActivity;
+import com.roy.douapp.ui.activity.common.LoginActivity;
 import com.roy.douapp.ui.activity.movie.MovieCollectionActivity;
 import com.roy.douapp.ui.activity.common.SystemSettingActivity;
 import com.roy.douapp.ui.activity.music.MusicPlayActivity;
@@ -36,7 +39,10 @@ import com.roy.douapp.ui.fragment.music.MusicFragment;
 import java.util.ArrayList;
 import java.util.List;
 
-public class MainActivity extends BaseActivity implements View.OnClickListener, NavigationView.OnNavigationItemSelectedListener, ViewPager.OnPageChangeListener, RadioGroup.OnCheckedChangeListener {
+public class MainActivity extends BaseActivity implements View.OnClickListener,
+        NavigationView.OnNavigationItemSelectedListener,
+        ViewPager.OnPageChangeListener,
+        RadioGroup.OnCheckedChangeListener {
     private static final String TAG = MainActivity.class.getSimpleName();
     private DrawerLayout dl_main;
     private ViewPager vp_main;
@@ -62,6 +68,7 @@ public class MainActivity extends BaseActivity implements View.OnClickListener, 
     private List<Fragment> mFragmentList = new ArrayList<>();
 
     private int mCurrentFragment;
+    private InputMethodManager mImm ;
 
 
     @Override
@@ -93,6 +100,7 @@ public class MainActivity extends BaseActivity implements View.OnClickListener, 
 
 
     private void initView() {
+        mImm = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
         mToolbar.setBackgroundResource(R.color.material_red);
         nv_main.inflateMenu(R.menu.sidebar_menu);
         nv_main.setItemIconTintList(getResources().getColorStateList(android.R.color.black));
@@ -137,6 +145,12 @@ public class MainActivity extends BaseActivity implements View.OnClickListener, 
                 hiddenDrawer();
                 break;
             case R.id.btn_personsl_center:
+                mActionBarDrawerToggle.runWhenIdle(new Runnable() {
+                    @Override
+                    public void run() {
+                        startActivity(new Intent(MainActivity.this, LoginActivity.class));
+                    }
+                });
                 hiddenDrawer();
                 break;
         }
@@ -177,6 +191,7 @@ public class MainActivity extends BaseActivity implements View.OnClickListener, 
                 (SearchView) menu.findItem(R.id.movie_search).getActionView();
         mSearchView.setSearchableInfo(
                 searchManager.getSearchableInfo(getComponentName()));
+        mSearchView.setSubmitButtonEnabled(true);
         mSearchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
             @Override
             public boolean onQueryTextSubmit(String query) {
@@ -263,6 +278,7 @@ public class MainActivity extends BaseActivity implements View.OnClickListener, 
 
         vp_main.setCurrentItem(mCurrentFragment, true);
     }
+
 
     public class SmoothActionBarDrawerToggle extends ActionBarDrawerToggle {
         private Runnable runnable;
