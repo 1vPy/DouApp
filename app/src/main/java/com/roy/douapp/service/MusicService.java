@@ -22,7 +22,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Created by Administrator on 2017/4/18.
+ * Created by 1vPy(Roy) on 2017/4/18.
  */
 
 public class MusicService extends Service implements MusicDetailsView, Player.OnPlayerRunListener {

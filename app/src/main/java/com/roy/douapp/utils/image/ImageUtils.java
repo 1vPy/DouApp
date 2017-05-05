@@ -10,7 +10,7 @@ import com.roy.douapp.R;
 import jp.wasabeef.glide.transformations.CropCircleTransformation;
 
 /**
- * Created by Administrator on 2017/2/15.
+ * Created by 1vPy(Roy) on 2017/2/15.
  */
 
 public class ImageUtils {

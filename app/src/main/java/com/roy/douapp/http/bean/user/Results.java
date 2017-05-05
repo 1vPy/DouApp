@@ -1,7 +1,7 @@
 package com.roy.douapp.http.bean.user;
 
 /**
- * Created by Administrator on 2017/3/16.
+ * Created by 1vPy(Roy) on 2017/3/16.
  */
 
 public class Results {

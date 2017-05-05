@@ -7,7 +7,7 @@ import com.roy.douapp.R;
 import com.roy.douapp.base.BaseSwipeBackActivity;
 
 /**
- * Created by Administrator on 2017/5/3.
+ * Created by 1vPy(Roy) on 2017/5/3.
  */
 
 public class LoginActivity extends BaseSwipeBackActivity{

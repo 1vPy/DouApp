@@ -32,7 +32,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Created by Administrator on 2017/4/14.
+ * Created by 1vPy(Roy) on 2017/4/14.
  */
 
 public class MusicBillListActivity extends BaseSwipeBackActivity implements MusicBillListView, BaseQuickAdapter.OnItemClickListener {

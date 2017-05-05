@@ -24,7 +24,7 @@ import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory;
 import retrofit2.converter.gson.GsonConverterFactory;
 
 /**
- * Created by Administrator on 2017/4/13.
+ * Created by 1vPy(Roy) on 2017/4/13.
  */
 
 public class BaiduApiService {

@@ -35,7 +35,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Created by Administrator on 2017/4/12.
+ * Created by 1vPy(Roy) on 2017/4/12.
  */
 
 public class MovieDetailsActivity extends BaseSwipeBackActivity implements MovieDetailsView, View.OnClickListener {

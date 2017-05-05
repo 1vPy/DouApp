@@ -9,7 +9,7 @@ import com.roy.douapp.ui.presenter.MusicDetailsPresenter;
 import com.roy.douapp.ui.view.MusicDetailsView;
 
 /**
- * Created by Administrator on 2017/4/14.
+ * Created by 1vPy(Roy) on 2017/4/14.
  */
 
 public class MusicDetailsPresenterImpl implements MusicDetailsPresenter{

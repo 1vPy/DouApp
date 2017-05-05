@@ -12,7 +12,7 @@ import com.roy.douapp.utils.common.LogUtils;
 import java.util.List;
 
 /**
- * Created by Administrator on 2017/4/20.
+ * Created by 1vPy(Roy) on 2017/4/20.
  */
 
 public class MusicPlayer {

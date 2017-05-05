@@ -13,7 +13,7 @@ import android.view.ViewGroup;
 import com.roy.douapp.widget.LoadingDialog;
 
 /**
- * Created by Administrator on 2017/4/11.
+ * Created by 1vPy(Roy) on 2017/4/11.
  */
 
 public class BaseFragment extends Fragment{

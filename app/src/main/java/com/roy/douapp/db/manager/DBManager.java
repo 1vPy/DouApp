@@ -14,6 +14,10 @@ import com.roy.douapp.http.bean.music.playlist.MusicBean;
 import java.util.ArrayList;
 import java.util.List;
 
+import io.reactivex.Observable;
+import io.reactivex.ObservableEmitter;
+import io.reactivex.ObservableOnSubscribe;
+
 /**
  * Created by 1vPy(Roy) on 2017/3/28.
  */
@@ -81,6 +85,37 @@ public class DBManager {
         }
         cursor.close();
         return movieCollectionList;
+    }
+
+    public Observable<List<MovieCollection>> searchCollections(){
+        return Observable.create(new ObservableOnSubscribe<List<MovieCollection>>() {
+            @Override
+            public void subscribe(ObservableEmitter<List<MovieCollection>> e) throws Exception {
+                List<MovieCollection> movieCollectionList = new ArrayList<>();
+                try{
+                    Cursor cursor = db.rawQuery("select * from tb_collection", null);
+                    if (cursor.getCount() == 0) {
+                        e.onError(new Throwable("没有数据"));
+                        return;
+                    }
+                    while (cursor.moveToNext()) {
+                        MovieCollection movieCollection = new MovieCollection();
+                        movieCollection.setId(cursor.getInt(cursor.getColumnIndex("id")));
+                        movieCollection.setMovieName(cursor.getString(cursor.getColumnIndex("movieName")));
+                        movieCollection.setMovieType(cursor.getString(cursor.getColumnIndex("movieType")));
+                        movieCollection.setMovieStar(cursor.getString(cursor.getColumnIndex("movieStar")));
+                        movieCollection.setMovieId(cursor.getString(cursor.getColumnIndex("movieId")));
+                        movieCollectionList.add(movieCollection);
+                    }
+                    cursor.close();
+                }catch (Exception e1){
+                    e.onError(e1);
+                }
+                e.onNext(movieCollectionList);
+
+            }
+        });
+
     }
 
 

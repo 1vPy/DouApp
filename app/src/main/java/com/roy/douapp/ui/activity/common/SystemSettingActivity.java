@@ -8,7 +8,7 @@ import com.roy.douapp.R;
 import com.roy.douapp.base.BaseSwipeBackActivity;
 
 /**
- * Created by Administrator on 2017/4/12.
+ * Created by 1vPy(Roy) on 2017/4/12.
  */
 
 public class SystemSettingActivity extends BaseSwipeBackActivity{

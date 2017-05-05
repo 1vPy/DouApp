@@ -1,7 +1,7 @@
 package com.roy.douapp.http.bean.movie;
 
 /**
- * Created by Administrator on 2017/2/15.
+ * Created by 1vPy(Roy) on 2017/2/15.
  */
 
 public class Avatars {

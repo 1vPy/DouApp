@@ -20,6 +20,9 @@ import com.roy.douapp.R;
 import com.roy.douapp.base.BaseSwipeBackActivity;
 import com.roy.douapp.db.manager.DBManager;
 import com.roy.douapp.http.bean.collection.MovieCollection;
+import com.roy.douapp.ui.presenter.MovieCollectionPresenter;
+import com.roy.douapp.ui.presenter.impl.MovieCollectionPresenterImpl;
+import com.roy.douapp.ui.view.MovieCollectionView;
 import com.roy.douapp.utils.common.LogUtils;
 import com.yanzhenjie.recyclerview.swipe.Closeable;
 import com.yanzhenjie.recyclerview.swipe.OnSwipeMenuItemClickListener;
@@ -28,15 +31,26 @@ import com.yanzhenjie.recyclerview.swipe.SwipeMenuAdapter;
 import com.yanzhenjie.recyclerview.swipe.SwipeMenuCreator;
 import com.yanzhenjie.recyclerview.swipe.SwipeMenuItem;
 import com.yanzhenjie.recyclerview.swipe.SwipeMenuRecyclerView;
+import com.yuyh.library.utils.toast.ToastUtils;
 
 import java.util.ArrayList;
 import java.util.List;
 
+import io.reactivex.Observable;
+import io.reactivex.ObservableEmitter;
+import io.reactivex.ObservableOnSubscribe;
+import io.reactivex.android.schedulers.AndroidSchedulers;
+import io.reactivex.annotations.NonNull;
+import io.reactivex.functions.Action;
+import io.reactivex.functions.Consumer;
+import io.reactivex.schedulers.Schedulers;
+
 /**
- * Created by Administrator on 2017/4/13.
+ * Created by 1vPy(Roy) on 2017/4/13.
  */
 
-public class MovieCollectionActivity extends BaseSwipeBackActivity implements OnSwipeMenuItemClickListener {
+public class MovieCollectionActivity extends BaseSwipeBackActivity implements OnSwipeMenuItemClickListener
+,MovieCollectionView{
     private static final String TAG = MovieCollectionActivity.class.getSimpleName();
     private SwipeMenuRecyclerView sryv_collection;
     private TextView tv_tip;
@@ -47,10 +61,13 @@ public class MovieCollectionActivity extends BaseSwipeBackActivity implements On
 
     private List<MovieCollection> mMovieCollectionList = new ArrayList<>();
 
+    private MovieCollectionPresenter mPresenter;
+
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_collection);
+        showLoadingDialog();
         init();
     }
 
@@ -81,8 +98,11 @@ public class MovieCollectionActivity extends BaseSwipeBackActivity implements On
     }
 
     private void initData() {
-        mLoadCollection = new LoadCollection();
-        mLoadCollection.execute();
+        mPresenter = new MovieCollectionPresenterImpl(this,this);
+        mPresenter.searchCollection();
+        //mLoadCollection = new LoadCollection();
+        //mLoadCollection.execute();
+
     }
 
     private void initEvent() {
@@ -139,6 +159,32 @@ public class MovieCollectionActivity extends BaseSwipeBackActivity implements On
                 tv_tip.setVisibility(View.GONE);
             }
         }
+    }
+
+    @Override
+    public void MovieCollection(List<MovieCollection> movieCollectionList) {
+        if (mMovieCollectionList != null) {
+            mMovieCollectionList.clear();
+        }
+        if (movieCollectionList != null && movieCollectionList.size() > 0) {
+            mMovieCollectionList.addAll(movieCollectionList);
+            tv_tip.setVisibility(View.GONE);
+        } else {
+            tv_tip.setVisibility(View.VISIBLE);
+        }
+        mCollectionRecyclerAdapter.notifyDataSetChanged();
+        hideLoadingDialog();
+    }
+
+    @Override
+    public void showError(String msg) {
+        if (mMovieCollectionList != null) {
+            mMovieCollectionList.clear();
+            mCollectionRecyclerAdapter.notifyDataSetChanged();
+            tv_tip.setVisibility(View.VISIBLE);
+        }
+        ToastUtils.showSingleLongToast(msg);
+        hideLoadingDialog();
     }
 
 

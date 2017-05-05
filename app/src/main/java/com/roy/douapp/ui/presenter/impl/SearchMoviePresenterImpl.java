@@ -9,7 +9,7 @@ import com.roy.douapp.ui.presenter.SearchMoviePresenter;
 import com.roy.douapp.ui.view.SearchMovieView;
 
 /**
- * Created by Administrator on 2017/4/13.
+ * Created by 1vPy(Roy) on 2017/4/13.
  */
 
 public class SearchMoviePresenterImpl implements SearchMoviePresenter {

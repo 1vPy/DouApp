@@ -42,7 +42,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Created by Administrator on 2017/4/11.
+ * Created by 1vPy(Roy) on 2017/4/11.
  */
 
 public class HotMovieFragment extends BaseFragment implements HotMovieView,

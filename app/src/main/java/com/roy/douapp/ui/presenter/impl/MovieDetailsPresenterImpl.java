@@ -9,7 +9,7 @@ import com.roy.douapp.ui.presenter.MovieDetailsPresenter;
 import com.roy.douapp.ui.view.MovieDetailsView;
 
 /**
- * Created by Administrator on 2017/4/12.
+ * Created by 1vPy(Roy) on 2017/4/12.
  */
 
 public class MovieDetailsPresenterImpl implements MovieDetailsPresenter{

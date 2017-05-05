@@ -10,7 +10,7 @@ import com.roy.douapp.ui.presenter.ComingMoviePresenter;
 import com.roy.douapp.ui.view.ComingMovieView;
 
 /**
- * Created by Administrator on 2017/4/10.
+ * Created by 1vPy(Roy) on 2017/4/10.
  */
 
 public class ComingMoviePresenterImpl implements ComingMoviePresenter {

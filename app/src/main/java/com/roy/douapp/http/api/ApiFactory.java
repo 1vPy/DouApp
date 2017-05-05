@@ -5,7 +5,7 @@ import com.roy.douapp.http.api.douban.DoubanApiService;
 import com.roy.douapp.http.api.user.UserApiService;
 
 /**
- * Created by Administrator on 2017/3/8.
+ * Created by 1vPy(Roy) on 2017/3/8.
  */
 
 public class ApiFactory {

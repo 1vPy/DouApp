@@ -8,7 +8,7 @@ import android.support.annotation.Nullable;
 import com.jude.swipbackhelper.SwipeBackHelper;
 
 /**
- * Created by Administrator on 2017/4/12.
+ * Created by 1vPy(Roy) on 2017/4/12.
  */
 
 public class BaseSwipeBackActivity extends BaseActivity{

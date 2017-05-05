@@ -10,7 +10,7 @@ import com.bumptech.glide.module.GlideModule;
 import com.roy.douapp.DouKit;
 
 /**
- * Created by Administrator on 2017/3/29.
+ * Created by 1vPy(Roy) on 2017/3/29.
  */
 
 public class GlideModuleSetting implements GlideModule {

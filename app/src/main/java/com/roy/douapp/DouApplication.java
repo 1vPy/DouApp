@@ -15,7 +15,7 @@ import com.roy.douapp.utils.common.SharedPreferencesUtil;
 import com.yuyh.library.AppUtils;
 
 /**
- * Created by Administrator on 2017/4/10.
+ * Created by 1vPy(Roy) on 2017/4/10.
  */
 
 public class DouApplication extends Application {

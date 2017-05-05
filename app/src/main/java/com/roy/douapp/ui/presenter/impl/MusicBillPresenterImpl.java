@@ -9,7 +9,7 @@ import com.roy.douapp.ui.presenter.MusicBillPresenter;
 import com.roy.douapp.ui.view.MusicBillView;
 
 /**
- * Created by Administrator on 2017/4/14.
+ * Created by 1vPy(Roy) on 2017/4/14.
  */
 
 public class MusicBillPresenterImpl implements MusicBillPresenter {

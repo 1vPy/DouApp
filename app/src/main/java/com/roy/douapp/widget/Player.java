@@ -13,7 +13,7 @@ import java.util.Timer;
 import java.util.TimerTask;
 
 /**
- * Created by Administrator on 2017/4/14.
+ * Created by 1vPy(Roy) on 2017/4/14.
  */
 
 public class Player implements MediaPlayer.OnBufferingUpdateListener,

@@ -35,7 +35,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Created by Administrator on 2017/4/11.
+ * Created by 1vPy(Roy) on 2017/4/11.
  */
 
 public class ComingMovieFragment extends BaseFragment implements ComingMovieView, BaseQuickAdapter.RequestLoadMoreListener, BaseQuickAdapter.OnItemClickListener, SwipeRefreshLayout.OnRefreshListener {

@@ -9,7 +9,7 @@ import com.roy.douapp.ui.presenter.HotMoviePresenter;
 import com.roy.douapp.ui.view.HotMovieView;
 
 /**
- * Created by Administrator on 2017/4/10.
+ * Created by 1vPy(Roy) on 2017/4/10.
  */
 
 public class HotMoviePresenterImpl implements HotMoviePresenter {

@@ -1,7 +1,7 @@
 package com.roy.douapp.http.bean.movie;
 
 /**
- * Created by Administrator on 2017/4/12.
+ * Created by 1vPy(Roy) on 2017/4/12.
  */
 
 public class DirectorActor {

@@ -4,7 +4,7 @@ import android.os.Parcel;
 import android.os.Parcelable;
 
 /**
- * Created by Administrator on 2017/4/17.
+ * Created by 1vPy(Roy) on 2017/4/17.
  */
 
 public class MusicBean  implements Parcelable {

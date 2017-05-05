@@ -13,7 +13,7 @@ import com.yuyh.library.utils.toast.ToastUtils;
 
 
 /**
- * Created by Administrator on 2017/3/9.
+ * Created by 1vPy(Roy) on 2017/3/9.
  */
 
 public class WebViewActivity extends BaseSwipeBackActivity {

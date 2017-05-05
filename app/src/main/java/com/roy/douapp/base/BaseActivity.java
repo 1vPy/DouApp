@@ -14,7 +14,7 @@ import com.roy.douapp.utils.common.LogUtils;
 import com.roy.douapp.widget.LoadingDialog;
 
 /**
- * Created by Administrator on 2017/4/10.
+ * Created by 1vPy(Roy) on 2017/4/10.
  */
 
 public class BaseActivity extends AppCompatActivity {

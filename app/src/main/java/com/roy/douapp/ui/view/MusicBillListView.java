@@ -3,7 +3,7 @@ package com.roy.douapp.ui.view;
 import com.roy.douapp.http.bean.music.billlist.JsonSongListBean;
 
 /**
- * Created by Administrator on 2017/4/14.
+ * Created by 1vPy(Roy) on 2017/4/14.
  */
 
 public interface MusicBillListView extends BaseView {

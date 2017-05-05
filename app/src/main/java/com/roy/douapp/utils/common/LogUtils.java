@@ -7,7 +7,7 @@ import java.io.StringWriter;
 import java.io.Writer;
 
 /**
- * Created by Administrator on 2016/12/26.
+ * Created by 1vPy(Roy) on 2016/12/26.
  */
 
 public class LogUtils {
