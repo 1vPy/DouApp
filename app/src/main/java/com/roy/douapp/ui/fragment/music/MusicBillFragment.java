@@ -19,8 +19,8 @@ import com.roy.douapp.base.BaseFragment;
 import com.roy.douapp.http.bean.music.billcategory.Content;
 import com.roy.douapp.http.bean.music.billcategory.JsonMusicBillBean;
 import com.roy.douapp.ui.activity.music.MusicBillListActivity;
-import com.roy.douapp.ui.presenter.Presenter;
-import com.roy.douapp.ui.presenter.callback.MusicBillCB;
+import com.roy.douapp.ui.presenter.MusicBillPresenter;
+import com.roy.douapp.ui.view.MusicBillView;
 import com.roy.douapp.ui.presenter.impl.MusicBillPresenterImpl;
 import com.roy.douapp.utils.common.ScreenUtils;
 import com.roy.douapp.utils.image.ImageUtils;
@@ -34,7 +34,7 @@ import java.util.List;
  * Created by Administrator on 2017/4/14.
  */
 
-public class MusicBillFragment extends BaseFragment implements MusicBillCB,BaseQuickAdapter.OnItemClickListener {
+public class MusicBillFragment extends BaseFragment implements MusicBillView,BaseQuickAdapter.OnItemClickListener {
     private static final String TAG = MusicBillFragment.class.getSimpleName();
     private RecyclerView ryv_bill;
 
@@ -42,7 +42,7 @@ public class MusicBillFragment extends BaseFragment implements MusicBillCB,BaseQ
 
     private MBAdapter mMBAdapter;
     private List<Content> mContentList = new ArrayList<>();
-    private Presenter mPresenter;
+    private MusicBillPresenter mPresenter;
 
     public static MusicBillFragment newInstance() {
         Bundle args = new Bundle();

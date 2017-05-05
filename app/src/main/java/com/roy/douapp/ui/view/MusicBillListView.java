@@ -1,4 +1,4 @@
-package com.roy.douapp.ui.presenter.callback;
+package com.roy.douapp.ui.view;
 
 import com.roy.douapp.http.bean.music.billlist.JsonSongListBean;
 
@@ -6,6 +6,6 @@ import com.roy.douapp.http.bean.music.billlist.JsonSongListBean;
  * Created by Administrator on 2017/4/14.
  */
 
-public interface MusicBillListCB extends BaseCB{
+public interface MusicBillListView extends BaseView {
     void musicBillList(JsonSongListBean jsonSongListBean);
 }

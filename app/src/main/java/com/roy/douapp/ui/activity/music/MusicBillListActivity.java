@@ -19,7 +19,8 @@ import com.roy.douapp.R;
 import com.roy.douapp.base.BaseSwipeBackActivity;
 import com.roy.douapp.http.bean.music.billlist.JsonSongListBean;
 import com.roy.douapp.http.bean.music.billlist.SongList;
-import com.roy.douapp.ui.presenter.callback.MusicBillListCB;
+import com.roy.douapp.ui.presenter.MusicBillListPresenter;
+import com.roy.douapp.ui.view.MusicBillListView;
 import com.roy.douapp.ui.presenter.impl.MusicBillListPresenterImpl;
 import com.roy.douapp.utils.common.LogUtils;
 import com.roy.douapp.utils.common.ScreenUtils;
@@ -34,7 +35,7 @@ import java.util.List;
  * Created by Administrator on 2017/4/14.
  */
 
-public class MusicBillListActivity extends BaseSwipeBackActivity implements MusicBillListCB, BaseQuickAdapter.OnItemClickListener {
+public class MusicBillListActivity extends BaseSwipeBackActivity implements MusicBillListView, BaseQuickAdapter.OnItemClickListener {
     private static final String TAG = MusicBillListActivity.class.getSimpleName();
 
     private CollapsingToolbarLayout collapsing_toolbar;
@@ -45,7 +46,7 @@ public class MusicBillListActivity extends BaseSwipeBackActivity implements Musi
 
     private MBLAdapter mMBLAdapter;
 
-    private MusicBillListPresenterImpl mPresenter;
+    private MusicBillListPresenter mPresenter;
 
     private List<SongList> mSongLists = new ArrayList<>();
     private int billType;

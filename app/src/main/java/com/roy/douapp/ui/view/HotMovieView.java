@@ -1,4 +1,4 @@
-package com.roy.douapp.ui.presenter.callback;
+package com.roy.douapp.ui.view;
 
         import com.roy.douapp.http.bean.movie.JsonMovieBean;
 
@@ -6,7 +6,7 @@ package com.roy.douapp.ui.presenter.callback;
  * Created by Administrator on 2017/4/10.
  */
 
-public interface HotMovieCB extends BaseCB {
+public interface HotMovieView extends BaseView {
 
     void hotMovie(JsonMovieBean jsonMovieBean);
 }

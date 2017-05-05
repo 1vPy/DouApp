@@ -16,23 +16,26 @@ import retrofit2.http.Query;
 public interface DoubanApi {
     /**
      * 正在上映
+     *
      * @param start
      * @return
      */
     @GET("v2/movie/in_theaters")
-    Observable<JsonMovieBean> getHotMovie(@Query("start") int start);
+    Observable<JsonMovieBean> getHotMovie(@Query("start") int start, @Query("count") int count, @Query("city") String city);
 
     /**
      * 即将上映
+     *
      * @param start
      * @param count
      * @return
      */
     @GET("v2/movie/coming_soon")
-    Observable<JsonMovieBean> getComingMovie(@Query("start") int start,@Query("count") int count);
+    Observable<JsonMovieBean> getComingMovie(@Query("start") int start, @Query("count") int count);
 
     /**
      * 电影详情
+     *
      * @param id
      * @return
      */
@@ -41,6 +44,7 @@ public interface DoubanApi {
 
     /**
      * 电影查询
+     *
      * @param query
      * @return
      */
@@ -49,6 +53,7 @@ public interface DoubanApi {
 
     /**
      * 演员查询
+     *
      * @param id
      * @return
      */

@@ -5,18 +5,18 @@ import android.content.Context;
 import com.roy.douapp.http.api.ApiFactory;
 import com.roy.douapp.http.api.RequestCallback;
 import com.roy.douapp.http.bean.music.billcategory.JsonMusicBillBean;
-import com.roy.douapp.ui.presenter.Presenter;
-import com.roy.douapp.ui.presenter.callback.MusicBillCB;
+import com.roy.douapp.ui.presenter.MusicBillPresenter;
+import com.roy.douapp.ui.view.MusicBillView;
 
 /**
  * Created by Administrator on 2017/4/14.
  */
 
-public class MusicBillPresenterImpl implements Presenter {
+public class MusicBillPresenterImpl implements MusicBillPresenter {
     private Context mContext;
-    private MusicBillCB mMusicBillCB;
+    private MusicBillView mMusicBillCB;
 
-    public MusicBillPresenterImpl(Context context, MusicBillCB musicBillCB){
+    public MusicBillPresenterImpl(Context context, MusicBillView musicBillCB){
         this.mContext = context;
         this.mMusicBillCB = musicBillCB;
     }

@@ -23,7 +23,8 @@ import com.roy.douapp.http.bean.movie.Directors;
 import com.roy.douapp.http.bean.movie.JsonMovieBean;
 import com.roy.douapp.http.bean.movie.Subjects;
 import com.roy.douapp.ui.activity.movie.MovieDetailsActivity;
-import com.roy.douapp.ui.presenter.callback.SearchMovieCB;
+import com.roy.douapp.ui.presenter.SearchMoviePresenter;
+import com.roy.douapp.ui.view.SearchMovieView;
 import com.roy.douapp.ui.presenter.impl.SearchMoviePresenterImpl;
 import com.roy.douapp.utils.common.LogUtils;
 import com.roy.douapp.utils.common.ScreenUtils;
@@ -38,14 +39,14 @@ import java.util.List;
  * Created by Administrator on 2017/4/13.
  */
 
-public class SearchActivity extends BaseSwipeBackActivity implements SearchMovieCB {
+public class SearchActivity extends BaseSwipeBackActivity implements SearchMovieView {
     private static final String TAG = SearchActivity.class.getSimpleName();
     private RecyclerView ryv_search;
     private TextView tv_tip;
 
     private SearchRecyclerAdapter mSearchRecyclerAdapter;
 
-    private SearchMoviePresenterImpl mPresenter;
+    private SearchMoviePresenter mPresenter;
 
     private List<Subjects> mSubjectsList = new ArrayList<>();
     private String mQuery;

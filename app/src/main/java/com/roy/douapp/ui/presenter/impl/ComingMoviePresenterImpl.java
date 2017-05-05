@@ -6,18 +6,18 @@ import com.roy.douapp.AppConfig;
 import com.roy.douapp.http.api.ApiFactory;
 import com.roy.douapp.http.api.RequestCallback;
 import com.roy.douapp.http.bean.movie.JsonMovieBean;
-import com.roy.douapp.ui.presenter.Presenter;
-import com.roy.douapp.ui.presenter.callback.ComingMovieCB;
+import com.roy.douapp.ui.presenter.ComingMoviePresenter;
+import com.roy.douapp.ui.view.ComingMovieView;
 
 /**
  * Created by Administrator on 2017/4/10.
  */
 
-public class ComingMoviePresenterImpl implements Presenter {
+public class ComingMoviePresenterImpl implements ComingMoviePresenter {
     private Context mContext;
-    private ComingMovieCB mComingMovieCB;
+    private ComingMovieView mComingMovieCB;
 
-    public ComingMoviePresenterImpl(Context context,ComingMovieCB comingMovieCB){
+    public ComingMoviePresenterImpl(Context context,ComingMovieView comingMovieCB){
         this.mContext = context;
         this.mComingMovieCB = comingMovieCB;
     }

@@ -4,9 +4,7 @@ import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.view.Gravity;
 import android.view.View;
-import android.view.WindowManager;
 import android.widget.ImageView;
-import android.widget.PopupWindow;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -14,7 +12,8 @@ import com.roy.douapp.AppConfig;
 import com.roy.douapp.R;
 import com.roy.douapp.base.BaseSwipeBackActivity;
 import com.roy.douapp.http.bean.music.musicinfo.JsonMusicInfoBean;
-import com.roy.douapp.ui.presenter.callback.MusicDetailsCB;
+import com.roy.douapp.ui.presenter.MusicDetailsPresenter;
+import com.roy.douapp.ui.view.MusicDetailsView;
 import com.roy.douapp.ui.presenter.impl.MusicDetailsPresenterImpl;
 import com.roy.douapp.utils.image.ImageUtils;
 import com.roy.douapp.widget.SheetsPopupWindow;
@@ -25,7 +24,7 @@ import com.yuyh.library.utils.toast.ToastUtils;
  * Created by Administrator on 2017/4/14.
  */
 
-public class MusicDetailsActivity extends BaseSwipeBackActivity implements MusicDetailsCB,View.OnClickListener{
+public class MusicDetailsActivity extends BaseSwipeBackActivity implements MusicDetailsView,View.OnClickListener{
     private ImageView ivMusic;
     private TextView tvMusicName;
     private TextView tvShare;
@@ -44,7 +43,7 @@ public class MusicDetailsActivity extends BaseSwipeBackActivity implements Music
 
     private SheetsPopupWindow mChoosePopupWindow;
 
-    private MusicDetailsPresenterImpl mPresenter;
+    private MusicDetailsPresenter mPresenter;
 
     private String mId;
 

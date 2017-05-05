@@ -1,9 +1,13 @@
 package com.roy.douapp.ui;
 
+import android.Manifest;
+import android.annotation.TargetApi;
 import android.app.Activity;
 import android.app.SearchManager;
 import android.content.Context;
 import android.content.Intent;
+import android.content.pm.PackageManager;
+import android.os.Build;
 import android.os.SystemClock;
 import android.support.annotation.NonNull;
 import android.support.design.widget.NavigationView;
@@ -24,10 +28,15 @@ import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
+import android.widget.Toast;
 
+import com.baidu.location.BDLocation;
+import com.baidu.location.BDLocationListener;
+import com.baidu.location.Poi;
 import com.roy.douapp.DouApplication;
 import com.roy.douapp.R;
 import com.roy.douapp.base.BaseActivity;
+import com.roy.douapp.service.LocationService;
 import com.roy.douapp.ui.activity.common.LoginActivity;
 import com.roy.douapp.ui.activity.movie.MovieCollectionActivity;
 import com.roy.douapp.ui.activity.common.SystemSettingActivity;
@@ -35,6 +44,11 @@ import com.roy.douapp.ui.activity.music.MusicPlayActivity;
 import com.roy.douapp.ui.adapter.DouBaseFragmentAdapter;
 import com.roy.douapp.ui.fragment.movie.MovieFragment;
 import com.roy.douapp.ui.fragment.music.MusicFragment;
+import com.yuyh.library.permission.Acp;
+import com.yuyh.library.permission.AcpListener;
+import com.yuyh.library.permission.AcpOptions;
+import com.yuyh.library.utils.DeviceUtils;
+import com.yuyh.library.utils.toast.ToastUtils;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -44,6 +58,9 @@ public class MainActivity extends BaseActivity implements View.OnClickListener,
         ViewPager.OnPageChangeListener,
         RadioGroup.OnCheckedChangeListener {
     private static final String TAG = MainActivity.class.getSimpleName();
+
+    private final int SDK_PERMISSION_REQUEST = 127;
+
     private DrawerLayout dl_main;
     private ViewPager vp_main;
     private NavigationView nv_main;
@@ -68,14 +85,17 @@ public class MainActivity extends BaseActivity implements View.OnClickListener,
     private List<Fragment> mFragmentList = new ArrayList<>();
 
     private int mCurrentFragment;
-    private InputMethodManager mImm ;
+    private InputMethodManager mImm;
 
+    private String permissionInfo;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         //startActivity(new Intent(this,SplashActivity.class));
         setContentView(R.layout.activity_main);
+        //getPersimmions();
+        checkPermissions();
         init();
     }
 
@@ -122,6 +142,7 @@ public class MainActivity extends BaseActivity implements View.OnClickListener,
         vp_main.setOffscreenPageLimit(3);
 
     }
+
 
     private void initEvent() {
         btn_system_setting.setOnClickListener(this);
@@ -311,6 +332,87 @@ public class MainActivity extends BaseActivity implements View.OnClickListener,
         public void runWhenIdle(Runnable runnable) {
             this.runnable = runnable;
         }
+    }
+
+
+    private void checkPermissions(){
+        Acp.getInstance(this).request(new AcpOptions.Builder()
+                        .setPermissions(
+                                Manifest.permission.ACCESS_FINE_LOCATION,
+                                Manifest.permission.ACCESS_COARSE_LOCATION,
+                                Manifest.permission.WRITE_EXTERNAL_STORAGE,
+                                Manifest.permission.READ_PHONE_STATE)
+                        .build(),
+                new AcpListener() {
+                    @Override
+                    public void onGranted() {
+
+                    }
+
+                    @Override
+                    public void onDenied(List<String> permissions) {
+                        /*String str = "";
+                        for (String permission : permissions) {
+                            str += permission + "\n";
+                        }
+                        ToastUtils.showSingleLongToast(str + "权限拒绝，可能会引起APP异常退出");*/
+                    }
+                });
+    }
+
+    @TargetApi(23)
+    private void getPersimmions() {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+            ArrayList<String> permissions = new ArrayList<String>();
+            /***
+             * 定位权限为必须权限，用户如果禁止，则每次进入都会申请
+             */
+            // 定位精确位置
+            if (checkSelfPermission(Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
+                permissions.add(Manifest.permission.ACCESS_FINE_LOCATION);
+            }
+            if (checkSelfPermission(Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
+                permissions.add(Manifest.permission.ACCESS_COARSE_LOCATION);
+            }
+            /*
+             * 读写权限和电话状态权限非必要权限(建议授予)只会申请一次，用户同意或者禁止，只会弹一次
+			 */
+            // 读写权限
+            if (addPermission(permissions, Manifest.permission.WRITE_EXTERNAL_STORAGE)) {
+                permissionInfo += "Manifest.permission.WRITE_EXTERNAL_STORAGE Deny \n";
+            }
+            // 读取电话状态权限
+            if (addPermission(permissions, Manifest.permission.READ_PHONE_STATE)) {
+                permissionInfo += "Manifest.permission.READ_PHONE_STATE Deny \n";
+            }
+
+            if (permissions.size() > 0) {
+                requestPermissions(permissions.toArray(new String[permissions.size()]), SDK_PERMISSION_REQUEST);
+            }
+        }
+    }
+
+    @TargetApi(23)
+    private boolean addPermission(ArrayList<String> permissionsList, String permission) {
+        if (checkSelfPermission(permission) != PackageManager.PERMISSION_GRANTED) { // 如果应用没有获得对应权限,则添加到列表中,准备批量申请
+            if (shouldShowRequestPermissionRationale(permission)) {
+                return true;
+            } else {
+                permissionsList.add(permission);
+                return false;
+            }
+
+        } else {
+            return true;
+        }
+    }
+
+    @TargetApi(23)
+    @Override
+    public void onRequestPermissionsResult(int requestCode, String[] permissions, int[] grantResults) {
+        // TODO Auto-generated method stub
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
+
     }
 
 }

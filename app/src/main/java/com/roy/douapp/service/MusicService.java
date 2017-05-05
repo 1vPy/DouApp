@@ -4,7 +4,6 @@ import android.app.Service;
 import android.content.Intent;
 import android.media.MediaPlayer;
 import android.os.IBinder;
-import android.os.Message;
 import android.os.RemoteCallbackList;
 import android.os.RemoteException;
 import android.support.annotation.Nullable;
@@ -14,8 +13,7 @@ import com.roy.douapp.IMusicPlayerListener;
 import com.roy.douapp.db.manager.DBManager;
 import com.roy.douapp.http.bean.music.musicinfo.JsonMusicInfoBean;
 import com.roy.douapp.http.bean.music.playlist.MusicBean;
-import com.roy.douapp.ui.activity.music.MusicPlayActivity;
-import com.roy.douapp.ui.presenter.callback.MusicDetailsCB;
+import com.roy.douapp.ui.view.MusicDetailsView;
 import com.roy.douapp.ui.presenter.impl.MusicDetailsPresenterImpl;
 import com.roy.douapp.utils.common.LogUtils;
 import com.roy.douapp.widget.Player;
@@ -27,7 +25,7 @@ import java.util.List;
  * Created by Administrator on 2017/4/18.
  */
 
-public class MusicService extends Service implements MusicDetailsCB, Player.OnPlayerRunListener {
+public class MusicService extends Service implements MusicDetailsView, Player.OnPlayerRunListener {
     private static final String TAG = MusicService.class.getSimpleName();
 
     //control

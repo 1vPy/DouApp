@@ -51,10 +51,10 @@ public class DoubanApiService {
         mDoubanApi = mRetrofit.create(DoubanApi.class);
     }
 
-    public static DoubanApiService getInstance(){
-        if(instance == null){
-            synchronized (BaiduApiService.class){
-                if(instance == null){
+    public static DoubanApiService getInstance() {
+        if (instance == null) {
+            synchronized (BaiduApiService.class) {
+                if (instance == null) {
                     instance = new DoubanApiService();
                 }
             }
@@ -62,16 +62,16 @@ public class DoubanApiService {
         return instance;
     }
 
-    public void getHotMovie(int start, final RequestCallback<JsonMovieBean> rc) {
-        mDoubanApi.getHotMovie(start)
+    public void getHotMovie(int start, int count, String city, final RequestCallback<JsonMovieBean> rc) {
+        mDoubanApi.getHotMovie(start, count, city)
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(new Consumer<JsonMovieBean>() {
                     @Override
                     public void accept(JsonMovieBean jsonMovieBean) throws Exception {
-                        if(jsonMovieBean != null){
+                        if (jsonMovieBean != null) {
                             rc.onSuccess(jsonMovieBean);
-                        }else{
+                        } else {
                             rc.onFailure(DouKit.getContext().getString(R.string.no_data));
                         }
                     }
@@ -92,9 +92,9 @@ public class DoubanApiService {
                 .subscribe(new Consumer<JsonMovieBean>() {
                     @Override
                     public void accept(JsonMovieBean jsonMovieBean) throws Exception {
-                        if(jsonMovieBean != null){
+                        if (jsonMovieBean != null) {
                             rc.onSuccess(jsonMovieBean);
-                        }else{
+                        } else {
                             rc.onFailure(DouKit.getContext().getString(R.string.no_data));
                         }
                     }
@@ -107,16 +107,16 @@ public class DoubanApiService {
 
     }
 
-    public void getMovieDetail(String id, final RequestCallback<JsonDetailBean> rc){
+    public void getMovieDetail(String id, final RequestCallback<JsonDetailBean> rc) {
         mDoubanApi.getMovieDetail(id)
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(new Consumer<JsonDetailBean>() {
                     @Override
                     public void accept(JsonDetailBean jsonDetailBean) throws Exception {
-                        if(jsonDetailBean != null){
+                        if (jsonDetailBean != null) {
                             rc.onSuccess(jsonDetailBean);
-                        }else{
+                        } else {
                             rc.onFailure(DouKit.getContext().getString(R.string.no_data));
                         }
                     }
@@ -129,16 +129,16 @@ public class DoubanApiService {
     }
 
 
-    public void getStarDetail(String id, final RequestCallback<JsonStarBean> rc){
+    public void getStarDetail(String id, final RequestCallback<JsonStarBean> rc) {
         mDoubanApi.getStarDetail(id)
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(new Consumer<JsonStarBean>() {
                     @Override
                     public void accept(JsonStarBean jsonStarBean) throws Exception {
-                        if(jsonStarBean != null){
+                        if (jsonStarBean != null) {
                             rc.onSuccess(jsonStarBean);
-                        }else{
+                        } else {
                             rc.onFailure(DouKit.getContext().getString(R.string.no_data));
                         }
                     }
@@ -150,16 +150,16 @@ public class DoubanApiService {
                 });
     }
 
-    public void searchMovie(String query, final RequestCallback<JsonMovieBean> rc){
+    public void searchMovie(String query, final RequestCallback<JsonMovieBean> rc) {
         mDoubanApi.searchMovie(query)
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(new Consumer<JsonMovieBean>() {
                     @Override
                     public void accept(JsonMovieBean jsonMovieBean) throws Exception {
-                        if(jsonMovieBean != null){
+                        if (jsonMovieBean != null) {
                             rc.onSuccess(jsonMovieBean);
-                        }else{
+                        } else {
                             rc.onFailure(DouKit.getContext().getString(R.string.no_data));
                         }
                     }

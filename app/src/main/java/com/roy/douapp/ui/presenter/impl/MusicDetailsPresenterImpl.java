@@ -5,26 +5,21 @@ import android.content.Context;
 import com.roy.douapp.http.api.ApiFactory;
 import com.roy.douapp.http.api.RequestCallback;
 import com.roy.douapp.http.bean.music.musicinfo.JsonMusicInfoBean;
-import com.roy.douapp.ui.presenter.Presenter;
-import com.roy.douapp.ui.presenter.callback.MusicDetailsCB;
+import com.roy.douapp.ui.presenter.MusicDetailsPresenter;
+import com.roy.douapp.ui.view.MusicDetailsView;
 
 /**
  * Created by Administrator on 2017/4/14.
  */
 
-public class MusicDetailsPresenterImpl implements Presenter{
+public class MusicDetailsPresenterImpl implements MusicDetailsPresenter{
     private Context mContext;
-    private MusicDetailsCB mMusicDetailsCB;
+    private MusicDetailsView mMusicDetailsCB;
 
 
-    public MusicDetailsPresenterImpl(Context context,MusicDetailsCB musicDetailsCB){
+    public MusicDetailsPresenterImpl(Context context,MusicDetailsView musicDetailsCB){
         this.mContext = context;
         this.mMusicDetailsCB = musicDetailsCB;
-    }
-
-    @Override
-    public void initialized() {
-
     }
 
     public void initialized(String songId){

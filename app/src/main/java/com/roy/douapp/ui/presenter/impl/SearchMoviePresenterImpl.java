@@ -5,26 +5,20 @@ import android.content.Context;
 import com.roy.douapp.http.api.ApiFactory;
 import com.roy.douapp.http.api.RequestCallback;
 import com.roy.douapp.http.bean.movie.JsonMovieBean;
-import com.roy.douapp.http.bean.movie.details.JsonDetailBean;
-import com.roy.douapp.ui.presenter.Presenter;
-import com.roy.douapp.ui.presenter.callback.SearchMovieCB;
+import com.roy.douapp.ui.presenter.SearchMoviePresenter;
+import com.roy.douapp.ui.view.SearchMovieView;
 
 /**
  * Created by Administrator on 2017/4/13.
  */
 
-public class SearchMoviePresenterImpl implements Presenter {
+public class SearchMoviePresenterImpl implements SearchMoviePresenter {
     private Context mContext;
-    private SearchMovieCB mSearchMovieCB;
+    private SearchMovieView mSearchMovieCB;
 
-    public SearchMoviePresenterImpl(Context context, SearchMovieCB searchMovieCB){
+    public SearchMoviePresenterImpl(Context context, SearchMovieView searchMovieCB){
         this.mContext = context;
         this.mSearchMovieCB = searchMovieCB;
-    }
-
-    @Override
-    public void initialized() {
-
     }
 
     public void initialized(String query){

@@ -22,7 +22,8 @@ import com.roy.douapp.http.bean.movie.Directors;
 import com.roy.douapp.http.bean.movie.JsonMovieBean;
 import com.roy.douapp.http.bean.movie.Subjects;
 import com.roy.douapp.ui.activity.movie.MovieDetailsActivity;
-import com.roy.douapp.ui.presenter.callback.ComingMovieCB;
+import com.roy.douapp.ui.presenter.ComingMoviePresenter;
+import com.roy.douapp.ui.view.ComingMovieView;
 import com.roy.douapp.ui.presenter.impl.ComingMoviePresenterImpl;
 import com.roy.douapp.utils.common.LogUtils;
 import com.roy.douapp.utils.common.ScreenUtils;
@@ -37,7 +38,7 @@ import java.util.List;
  * Created by Administrator on 2017/4/11.
  */
 
-public class ComingMovieFragment extends BaseFragment implements ComingMovieCB, BaseQuickAdapter.RequestLoadMoreListener, BaseQuickAdapter.OnItemClickListener, SwipeRefreshLayout.OnRefreshListener {
+public class ComingMovieFragment extends BaseFragment implements ComingMovieView, BaseQuickAdapter.RequestLoadMoreListener, BaseQuickAdapter.OnItemClickListener, SwipeRefreshLayout.OnRefreshListener {
     private static final String TAG = ComingMovieFragment.class.getSimpleName();
     //
     private SwipeRefreshLayout srl_movie;
@@ -50,7 +51,7 @@ public class ComingMovieFragment extends BaseFragment implements ComingMovieCB, 
     private CMAdapter mCMAdapter;
     private List<Subjects> mSubjectsList = new ArrayList<>();
 
-    private ComingMoviePresenterImpl mPresenter;
+    private ComingMoviePresenter mPresenter;
     private boolean isLoadMore = false;
     private int pageCount;
 

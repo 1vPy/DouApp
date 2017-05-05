@@ -1,15 +1,12 @@
 package com.roy.douapp.ui.activity.movie;
 
-import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.text.TextUtils;
-import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -27,7 +24,8 @@ import com.roy.douapp.http.bean.movie.DirectorActor;
 import com.roy.douapp.http.bean.movie.Directors;
 import com.roy.douapp.http.bean.movie.details.JsonDetailBean;
 import com.roy.douapp.ui.activity.common.WebViewActivity;
-import com.roy.douapp.ui.presenter.callback.MovieDetailsCB;
+import com.roy.douapp.ui.presenter.MovieDetailsPresenter;
+import com.roy.douapp.ui.view.MovieDetailsView;
 import com.roy.douapp.ui.presenter.impl.MovieDetailsPresenterImpl;
 import com.roy.douapp.utils.common.LogUtils;
 import com.roy.douapp.utils.image.ImageUtils;
@@ -40,7 +38,7 @@ import java.util.List;
  * Created by Administrator on 2017/4/12.
  */
 
-public class MovieDetailsActivity extends BaseSwipeBackActivity implements MovieDetailsCB, View.OnClickListener {
+public class MovieDetailsActivity extends BaseSwipeBackActivity implements MovieDetailsView, View.OnClickListener {
     private static final String TAG = MovieDetailsActivity.class.getSimpleName();
 
     private View errorView;
@@ -59,7 +57,7 @@ public class MovieDetailsActivity extends BaseSwipeBackActivity implements Movie
     private TextView tv_buy_tickets;
     private FloatingActionButton fab_collect;
 
-    private MovieDetailsPresenterImpl mPresenter;
+    private MovieDetailsPresenter mPresenter;
     //private MovieDetailsRecyclerAdapter mMovieDetailsRecyclerAdapter;
     private MDAdapter mMDAdapter;
 

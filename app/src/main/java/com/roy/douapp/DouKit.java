@@ -9,6 +9,8 @@ import android.content.Context;
 public class DouKit {
     private static Context mContext;
 
+    private static String mNowCity;
+
     private static IMusicPlayer mMusicPlayerService;
 
     public static void setContext(Context context){
@@ -25,5 +27,13 @@ public class DouKit {
 
     public static IMusicPlayer getMusicPlayerService() {
         return mMusicPlayerService;
+    }
+
+    public static void setNowCity(String city){
+        mNowCity = city;
+    }
+
+    public static String getNowCity(){
+        return mNowCity;
     }
 }
